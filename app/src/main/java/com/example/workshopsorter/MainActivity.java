@@ -18,8 +18,11 @@ import java.util.List;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements NameClick{
 =======
+=======
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
 =======
 >>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
 public class MainActivity extends AppCompatActivity implements NameButtonClick{
@@ -105,6 +108,9 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
+=======
 >>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
 =======
 >>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
