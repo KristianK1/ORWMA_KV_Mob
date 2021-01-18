@@ -1,5 +1,5 @@
 package com.example.workshopsorter;
 
-public interface NameButtonClick {
+public interface NameClick {
     void onNameClick(int position);
 }

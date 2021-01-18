@@ -2,12 +2,14 @@ package com.example.workshopsorter;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NameClick{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_activity);
+        setContentView(R.layout.activity_main);
         setupRecycler();
         setupRecyclerData();
         this.searchText=(EditText) findViewById(R.id.edit_search);
@@ -89,13 +91,21 @@ public class MainActivity extends AppCompatActivity implements NameClick{
 
 
     public void search_button_pressed(View view){
+        String text=searchText.getText().toString();
+        Adapter.ClearAll();
 
+        List<Component> found = new ArrayList<>();
+        for(int i=0;i<complete_list.size();i++){
+            if(complete_list.get(i).getName().contains(text)){
+                found.add(complete_list.get(i));
+            }
+        }
+        Adapter.addData(found);
     }
 
     public void removeCell(int position) {
         //Adapter.removeCell(position);
     }
-
 
 
     public void onPause() {
@@ -108,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NameClick{
 
     @Override
     public void onNameClick(int position){
-        //Toast.makeText(this, "pozicija"+position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "pozicija"+position, Toast.LENGTH_SHORT).show();
         removeCell(position);
     }
 
