@@ -15,14 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements NameButtonClick{
+public class MainActivity extends AppCompatActivity implements NameClick{
     private RecyclerView recycler;
     private RecyclerAdapter Adapter;
     private EditText searchText;
     private Button searchButton;
-
-    private String fileContents;
-    private String file = "myfile";
 
 
     List<Component> complete_list=new ArrayList<>();
@@ -58,21 +55,10 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
             complete_list.add(new Component("Otpornik 240Ω"));
             complete_list.add(new Component("Otpornik 250Ω"));
             complete_list.add(new Component("Otpornik 260Ω"));
-            complete_list.add(new Component("Otpornik 270Ω"));
-            complete_list.add(new Component("Otpornik 280Ω"));
-            complete_list.add(new Component("Otpornik 290Ω"));
-            complete_list.add(new Component("Otpornik 300Ω"));
-            complete_list.add(new Component("Otpornik 310Ω"));
-            complete_list.add(new Component("Otpornik 320Ω"));
-            complete_list.add(new Component("Otpornik 330Ω"));
-            complete_list.add(new Component("Otpornik 340Ω"));
-            complete_list.add(new Component("Otpornik 350Ω"));
         }
         else{
             complete_list=Load_state();
         }
-
-        //fileRead();
         Adapter.addData(complete_list);
     }
 
@@ -83,7 +69,16 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
 
 
     public void search_button_pressed(View view){
+        String text=searchText.getText().toString();
+        Adapter.ClearAll();
 
+        List<Component> found = new ArrayList<>();
+        for(int i=0;i<complete_list.size();i++){
+            if(complete_list.get(i).getName().contains(text)){
+                found.add(complete_list.get(i));
+            }
+        }
+        Adapter.addData(found);
     }
 
     public void removeCell(int position) {
@@ -91,26 +86,28 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
     }
 
 
+    public void onNameClick(int position){
+        Toast.makeText(this, "pozicija"+position, Toast.LENGTH_SHORT).show();
+        //openCell(position);
+    }
+
+
+
+
     public void onPause() {
         save_state();
-        //fileWrite();
         Toast.makeText(getApplicationContext(), "onPause called", Toast.LENGTH_LONG).show();
         super.onPause();
 
     }
 
-    @Override
-    public void onNameClick(int position){
-        //Toast.makeText(this, "pozicija"+position, Toast.LENGTH_SHORT).show();
-        removeCell(position);
-    }
 
 
 
 
     public void save_state(){
-        int number_of_components=Adapter.getItemCount();
-        List<Component> list=Adapter.getDataList();
+        int number_of_components=complete_list.size();
+        List<Component> list=complete_list;
         //Toast.makeText(getBaseContext(), "Number of saved:" + number_of_components, Toast.LENGTH_LONG).show();
 
         SharedPreferences mPrefs=getSharedPreferences("label", 0);
