@@ -16,16 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements NameClick{
-=======
-=======
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
-=======
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
-public class MainActivity extends AppCompatActivity implements NameButtonClick{
+
     private RecyclerView recycler;
     private RecyclerAdapter Adapter;
     private EditText searchText;
@@ -35,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
     private String file = "myfile";
 
 
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
     List<Component> complete_list=new ArrayList<>();
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -52,8 +43,7 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
     }
 
 
-<<<<<<< HEAD
-=======
+
     private void setupRecycler(){
         recycler=findViewById(R.id.rvLista);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -107,13 +97,7 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
     }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
-=======
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
-=======
->>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
+
     public void onPause() {
         save_state();
         //fileWrite();
