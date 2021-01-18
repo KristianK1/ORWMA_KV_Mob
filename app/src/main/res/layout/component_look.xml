@@ -7,6 +7,41 @@
 
 
 
+
+    <Button
+        android:id="@+id/b_minus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:text="-"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="20px"
+        android:layout_marginVertical="20px"
+        android:layout_alignParentRight="true"
+        />
+    <TextView
+        android:id="@+id/twBrojac"
+        android:layout_width="40dp"
+        android:layout_height="80dp"
+        android:layout_toLeftOf="@id/b_minus"
+        android:text="35"
+        android:textSize="30dp"
+        android:layout_marginHorizontal="2px"
+        android:layout_marginVertical="2px"
+        android:gravity="center"
+        />
+    <Button
+        android:id="@+id/b_plus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:text="+"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="20px"
+        android:layout_marginVertical="20px"
+        android:layout_toLeftOf="@id/twBrojac"
+        />
+
     <TextView
         android:id="@+id/tvName"
         android:layout_width="match_parent"
@@ -15,18 +50,6 @@
         android:gravity="left|center"
         android:text="AAAAAAAAA"
         android:layout_margin="30px"
-        />
-
-
-    <TextView
-        android:id="@+id/twBrojac"
-        android:layout_width="40dp"
-        android:layout_height="80dp"
-        android:layout_alignParentRight="true"
-        android:text="35"
-        android:textSize="30dp"
-        android:layout_marginHorizontal="50px"
-        android:layout_marginVertical="2px"
-        android:gravity="center"
+        android:layout_toLeftOf="@id/b_plus"
         />
 </RelativeLayout>

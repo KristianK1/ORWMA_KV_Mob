@@ -16,7 +16,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements NameClick{
+=======
+public class MainActivity extends AppCompatActivity implements NameButtonClick{
+    private RecyclerView recycler;
+    private RecyclerAdapter Adapter;
+    private EditText searchText;
+    private Button searchButton;
+
+    private String fileContents;
+    private String file = "myfile";
+
+
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
     List<Component> complete_list=new ArrayList<>();
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -33,20 +46,82 @@ public class MainActivity extends AppCompatActivity implements NameClick{
     }
 
 
+<<<<<<< HEAD
+=======
+    private void setupRecycler(){
+        recycler=findViewById(R.id.rvLista);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        Adapter= new RecyclerAdapter(this);
+        recycler.setAdapter(Adapter);
+    }
+
+    private void setupRecyclerData(){
+
+
+        SharedPreferences mPrefs = getSharedPreferences("label", 0);
+        int number_of_components = mPrefs.getInt("tag", 0);
+        Toast.makeText(getBaseContext(), "lol"+number_of_components, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "ojjj", Toast.LENGTH_SHORT).show();
+        if(number_of_components==0){
+            complete_list.add(new Component("Otpornik 220Ω"));
+            complete_list.add(new Component("Otpornik 230Ω"));
+            complete_list.add(new Component("Otpornik 240Ω"));
+            complete_list.add(new Component("Otpornik 250Ω"));
+            complete_list.add(new Component("Otpornik 260Ω"));
+            complete_list.add(new Component("Otpornik 270Ω"));
+            complete_list.add(new Component("Otpornik 280Ω"));
+            complete_list.add(new Component("Otpornik 290Ω"));
+            complete_list.add(new Component("Otpornik 300Ω"));
+            complete_list.add(new Component("Otpornik 310Ω"));
+            complete_list.add(new Component("Otpornik 320Ω"));
+            complete_list.add(new Component("Otpornik 330Ω"));
+            complete_list.add(new Component("Otpornik 340Ω"));
+            complete_list.add(new Component("Otpornik 350Ω"));
+        }
+        else{
+            complete_list=Load_state();
+        }
+
+        //fileRead();
+        Adapter.addData(complete_list);
+    }
+
+    public void addCell(View view){
+        Adapter.addNewCell(new Component("Otpornik 700"), this.Adapter.getItemCount());
+        complete_list.add(new Component("Otpornik 700"));
+    }
+
+
+    public void search_button_pressed(View view){
+
+    }
+
+    public void removeCell(int position) {
+        //Adapter.removeCell(position);
+    }
+
+
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
     public void onPause() {
         save_state();
+        //fileWrite();
         Toast.makeText(getApplicationContext(), "onPause called", Toast.LENGTH_LONG).show();
         super.onPause();
 
     }
 
+    @Override
+    public void onNameClick(int position){
+        //Toast.makeText(this, "pozicija"+position, Toast.LENGTH_SHORT).show();
+        removeCell(position);
+    }
 
 
 
 
     public void save_state(){
-        int number_of_components=complete_list.size();
-        List<Component> list=complete_list;
+        int number_of_components=Adapter.getItemCount();
+        List<Component> list=Adapter.getDataList();
         //Toast.makeText(getBaseContext(), "Number of saved:" + number_of_components, Toast.LENGTH_LONG).show();
 
         SharedPreferences mPrefs=getSharedPreferences("label", 0);

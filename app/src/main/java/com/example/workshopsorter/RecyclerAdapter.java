@@ -12,9 +12,8 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<NameViewHolder> {
     private List<Component> dataList = new ArrayList<>();
-    private NameClick clickListener;
-
-    public RecyclerAdapter(NameClick listener){
+    private NameButtonClick clickListener;
+    public RecyclerAdapter(NameButtonClick listener){
         this.clickListener=listener;
     }
 
@@ -55,9 +54,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<NameViewHolder> {
             dataList.remove(position);
             notifyItemRemoved(position);
         }
-    }
-    public void ClearAll(){
-        dataList.clear();
-        notifyDataSetChanged();
     }
 }
