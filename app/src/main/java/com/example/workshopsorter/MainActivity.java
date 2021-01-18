@@ -17,8 +17,11 @@ import java.util.List;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements NameClick{
 =======
+=======
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
 public class MainActivity extends AppCompatActivity implements NameButtonClick{
     private RecyclerView recycler;
     private RecyclerAdapter Adapter;
@@ -101,6 +104,9 @@ public class MainActivity extends AppCompatActivity implements NameButtonClick{
     }
 
 
+<<<<<<< HEAD
+>>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
+=======
 >>>>>>> parent of d43850e... radi skrolanje, klikanje u prazno i sejvanje
     public void onPause() {
         save_state();
